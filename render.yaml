@@ -5,8 +5,7 @@ services:
     buildCommand: cd spotify-backend && npm install
     startCommand: cd spotify-backend && node index.js
     plan: free
-    branches:
-      - main
+    branches: main
 
   - type: web
     name: spotify-frontend
@@ -14,5 +13,4 @@ services:
     buildCommand: # Optional, if you want to run a build command for the frontend
     startCommand: serve -s spotify-frontend
     plan: free
-    branches:
-      - main
+    branches: main
