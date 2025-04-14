@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: spot
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    branches:
+      - main
