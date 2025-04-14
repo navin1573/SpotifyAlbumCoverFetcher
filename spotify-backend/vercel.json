@@ -1,0 +1,8 @@
+{
+    "builds": [
+        {
+            "src": "spotify-frontend/index.html",
+            "use": "@vercel/static"
+        }
+    ]
+}
