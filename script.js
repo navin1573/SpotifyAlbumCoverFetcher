@@ -1,4 +1,6 @@
-const TOKEN_PROXY_URL = "https://spot-3cjr5zwi3-navin1573s-projects.vercel.app/get-token";
+const CLIENT_ID = "b2568a4f91ff497aa8a97de9d5f9dc4a"; // Replace with your Spotify Client ID
+const CLIENT_SECRET = "a2cdee8f35b14d558c43b6592b3e9192"; // Replace with your Spotify Client Secret
+const TOKEN_URL = "https://accounts.spotify.com/api/token";
 const SEARCH_URL = "https://api.spotify.com/v1/search";
 
 document.getElementById("fetchButton").addEventListener("click", async () => {
@@ -14,7 +16,10 @@ document.getElementById("fetchButton").addEventListener("click", async () => {
   }
 
   try {
+    // Get Spotify access token
     const token = await getSpotifyAccessToken();
+
+    // Search for the album cover
     const albumCoverUrl = await searchAlbumCover(token, `${artistName} ${songTitle}`);
 
     if (albumCoverUrl) {
@@ -23,6 +28,7 @@ document.getElementById("fetchButton").addEventListener("click", async () => {
       albumCover.style.display = "block";
       downloadButton.style.display = "inline-block";
 
+      // Handle download
       downloadButton.onclick = () => downloadImage(albumCoverUrl, artistName, songTitle);
     } else {
       resultMessage.textContent = "Album cover not found.";
@@ -36,8 +42,12 @@ document.getElementById("fetchButton").addEventListener("click", async () => {
 });
 
 async function getSpotifyAccessToken() {
-  const response = await fetch(TOKEN_PROXY_URL, {
-    method: "POST"
+  const response = await fetch(TOKEN_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `grant_type=client_credentials&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`,
   });
   const data = await response.json();
   return data.access_token;
@@ -51,7 +61,7 @@ async function searchAlbumCover(token, query) {
   });
   const data = await response.json();
   if (data.albums && data.albums.items.length > 0 && data.albums.items[0].images.length > 0) {
-    return data.albums.items[0].images[0].url;
+    return data.albums.items[0].images[0].url; // Return the cover image URL
   }
   return null;
 }
