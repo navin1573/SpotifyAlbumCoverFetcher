@@ -1,16 +1,20 @@
 services:
+  # Backend Service (Node.js API)
   - type: web
     name: spotify-backend
     env: node
     buildCommand: cd spotify-backend && npm install
     startCommand: cd spotify-backend && node index.js
     plan: free
-    branches: main
+    branches:
+      - main
 
+  # Frontend Service (Static files, served by Render)
   - type: web
     name: spotify-frontend
     env: static
-    buildCommand: # Optional, if you want to run a build command for the frontend
+    buildCommand: # Optional, add if you want to run a build command for the frontend
     startCommand: serve -s spotify-frontend
     plan: free
-    branches: main
+    branches:
+      - main
