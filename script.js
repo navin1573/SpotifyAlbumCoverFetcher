@@ -16,10 +16,7 @@ document.getElementById("fetchButton").addEventListener("click", async () => {
   }
 
   try {
-    // Get Spotify access token
     const token = await getSpotifyAccessToken();
-
-    // Search for the album cover
     const albumCoverUrl = await searchAlbumCover(token, `${artistName} ${songTitle}`);
 
     if (albumCoverUrl) {
@@ -28,7 +25,6 @@ document.getElementById("fetchButton").addEventListener("click", async () => {
       albumCover.style.display = "block";
       downloadButton.style.display = "inline-block";
 
-      // Handle download
       downloadButton.onclick = () => downloadImage(albumCoverUrl, artistName, songTitle);
     } else {
       resultMessage.textContent = "Album cover not found.";
@@ -61,7 +57,7 @@ async function searchAlbumCover(token, query) {
   });
   const data = await response.json();
   if (data.albums && data.albums.items.length > 0 && data.albums.items[0].images.length > 0) {
-    return data.albums.items[0].images[0].url; // Return the cover image URL
+    return data.albums.items[0].images[0].url; 
   }
   return null;
 }
