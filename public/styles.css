@@ -1,0 +1,102 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #0f0f0f, #1f1f1f);
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 500px;
+  padding: 30px 25px;
+  background: rgba(30, 30, 30, 0.85);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #1DB954; /* Spotify green */
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #cccccc;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2e2e2e;
+  color: #ffffff;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  background-color: #3a3a3a;
+  box-shadow: 0 0 0 2px #1DB954;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #1DB954;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1aa34a;
+}
+
+#resultMessage {
+  margin-top: 18px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #dddddd;
+}
+
+#albumCoverContainer {
+  margin: 20px 0;
+}
+
+#albumCover {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+#downloadButton {
+  margin-top: 10px;
+  background-color: #333;
+}
+
+#downloadButton:hover {
+  background-color: #444;
+}

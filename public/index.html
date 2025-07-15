@@ -1,0 +1,32 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify Album Cover Fetcher</title>
+  <link rel="stylesheet" href="styles.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6800107732398910" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Spotify Album Cover Fetcher</h1>
+    <div class="form-group">
+      <label for="artistName">Artist Name:</label>
+      <input type="text" id="artistName" placeholder="Enter artist name">
+    </div>
+    <div class="form-group">
+      <label for="songTitle">Song Title:</label>
+      <input type="text" id="songTitle" placeholder="Enter song title">
+    </div>
+    <button id="fetchButton">Fetch Album Cover</button>
+    <div id="resultMessage"></div>
+    <div id="albumCoverContainer">
+      <img id="albumCover" src="" alt="Album Cover" style="display: none;">
+    </div>
+    <button id="downloadButton" style="display: none;">Download Album Cover</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
